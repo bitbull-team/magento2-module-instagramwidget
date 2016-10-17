@@ -1,0 +1,59 @@
+@color__dark: #1f1f1f;
+@color__light: #919191;
+
+
+& when (@media-common = true) {
+
+  //   --------- Instagram widget ------------
+
+  .instagram-widget-container {
+    text-align: center;
+    background: @color__dark;
+    padding-top: 50px;
+    padding-bottom: 100px;
+
+    #bb-insta-title {
+      padding-bottom: 20px;
+      font-size: 18px;
+      display: block;
+      color: @color__light;
+    }
+
+    #bb-insta-stream {
+      padding: 0;
+      li {
+        list-style: none;
+        padding: 15px;
+        width: 50%;
+        float: left;
+        a {
+          cursor: pointer;
+          &:hover {
+            img {
+              opacity: 0.7;
+            }
+          }
+        }
+      }
+      &:after {
+        content: ' ';
+        clear: both;
+        display: block;
+      }
+    }
+  }
+
+}
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__s) {
+  .instagram-widget-container {
+    #bb-insta-title {
+      font-size: 30px;
+    }
+    #bb-insta-stream {
+      li {
+        width: 25%;
+      }
+    }
+  }
+}
