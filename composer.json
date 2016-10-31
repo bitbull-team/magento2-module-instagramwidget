@@ -2,6 +2,7 @@
   "name": "bitbull/magento2-module-instagramwidget",
   "description": "Instagram stream for Magento2",
   "license": "proprietary",
+  "version": "1.0.1",
   "authors": [
     {
       "name": "Irene Iaccio",

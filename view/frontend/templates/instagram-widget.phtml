@@ -7,12 +7,7 @@
 <script type="text/x-magento-init">
     {
         "#bb-insta-wdg": {
-            "InstagramWidget": {
-                "token":"4051544892.c0d60c0.4216b9d182ed403eac4965a43a3c954c",
-                "userid":"4051544892",
-                "channel":"@AwesomeChannel",
-                "num_photos":"4"
-            }
+            "InstagramWidget": <?php echo \Zend_Json::encode($this->getConfig()) ?>
         }
     }
 </script>
