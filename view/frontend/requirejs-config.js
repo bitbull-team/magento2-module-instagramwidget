@@ -1,5 +1,7 @@
 var config = {
-    "paths": {
-        "InstagramWidget": "Bitbull_InstagramWidget/js/InstagramWidget"
+    map: {
+        '*': {
+            InstagramWidget: 'Bitbull_InstagramWidget/js/InstagramWidget'
+        }
     }
 };

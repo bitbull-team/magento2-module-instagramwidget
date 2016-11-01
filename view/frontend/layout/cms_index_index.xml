@@ -7,9 +7,9 @@
 -->
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <body>
-        <referenceContainer name="main.wrapper">
+        <referenceContainer name="content">
             <container name="homepage.instagram.widget" htmlTag="div" htmlClass="instagram-widget-container" after="-">
-                <block class="Magento\Framework\View\Element\Template" name="instagram.widget" template="Bitbull_InstagramWidget::instagram-widget.phtml">
+                <block class="Bitbull\InstagramWidget\Block\Instagram" name="instagram.widget" template="Bitbull_InstagramWidget::instagram-widget.phtml">
                     <arguments>
                         <argument translate="true" name="title" xsi:type="string">Instagram</argument>
                     </arguments>
@@ -17,5 +17,4 @@
             </container>
         </referenceContainer>
     </body>
-
 </page>
