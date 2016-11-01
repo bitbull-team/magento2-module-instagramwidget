@@ -48,6 +48,7 @@ Developers
 ---------
 
 Irene Iaccio(@nuovecode): http://www.bitbull.it
+
 Rodrigo Acuna: https://github.com/rodde177
 
 
