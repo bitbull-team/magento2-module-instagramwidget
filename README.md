@@ -29,7 +29,7 @@ After install go to M2 admin configuration and in the instagram widget tab add:
  * Channel name to display 
  * Numbers of photo 
  
-To retrieve the data of your channel follow the following guide: https://www.instagram.com/developer/authentication/
+To retrieve the data of your channel follow the official instagram doc: https://www.instagram.com/developer/authentication/
 
 Changelog
 ----------
