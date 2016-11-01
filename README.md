@@ -37,7 +37,20 @@ Changelog
 * 2.0.0 - Added configuration in admin to make module reusable
 * 1.0.0 - first release
 
-Credits
+
+Licence
 -------
 
+[OSL - Open Software Licence 3.0](http://opensource.org/licenses/osl-3.0.php)
+
+
+Developers
+---------
+
+Irene Iaccio(@nuovecode): http://www.bitbull.it
 Rodrigo Acuna: https://github.com/rodde177
+
+
+Copyright
+---------
+(c) 2016 Bitbull Srl
