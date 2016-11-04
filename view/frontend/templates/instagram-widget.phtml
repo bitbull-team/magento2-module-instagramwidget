@@ -1,3 +1,10 @@
+<?php
+/**
+ * Instagram Widget block template
+ *
+ * @var $block \Bitbull\InstagramWidget\Block\Instagram
+ */
+?>
 <div id="bb-insta-wdg" class="generic-content">
     <strong id="bb-insta-title"><!-- @channel--></strong>
     <ul id="bb-insta-stream">
@@ -7,7 +14,7 @@
 <script type="text/x-magento-init">
     {
         "#bb-insta-wdg": {
-            "InstagramWidget": <?php echo \Zend_Json::encode($this->getConfig()) ?>
+            "InstagramWidget": <?php echo \Zend_Json::encode($block->getConfig()) ?>
         }
     }
 </script>
