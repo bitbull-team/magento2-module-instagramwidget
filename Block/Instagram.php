@@ -60,7 +60,7 @@ class Instagram extends \Magento\Framework\View\Element\Template
      */
     protected function _getInstagramUserId()
     {
-        return (string) $this->configHelper->getConfigParam(InstagramConfig::INSTAGRAML_USERID);
+        return (string) $this->configHelper->getConfigParam(InstagramConfig::INSTAGRAM_USERID);
     }
 
     /**

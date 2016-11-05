@@ -9,7 +9,10 @@
     <body>
         <referenceContainer name="content">
             <container name="homepage.instagram.widget" htmlTag="div" htmlClass="instagram-widget-container" after="-">
-                <block class="Bitbull\InstagramWidget\Block\Instagram" name="instagram.widget" template="Bitbull_InstagramWidget::instagram-widget.phtml">
+                <block class="Bitbull\InstagramWidget\Block\Instagram"
+                       name="instagram.widget"
+                       template="Bitbull_InstagramWidget::instagram-widget.phtml"
+                       ifconfig="instagram/settings/enabled_homepage">
                     <arguments>
                         <argument translate="true" name="title" xsi:type="string">Instagram</argument>
                     </arguments>

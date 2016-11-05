@@ -10,7 +10,7 @@ class Config extends AbstractHelper
 
     const BASE_CONFIG_XML_PREFIX  = 'instagram/settings/%s';
     const INSTAGRAM_TOKEN         = 'instagram_token';
-    const INSTAGRAML_USERID       = 'instagram_user_id';
+    const INSTAGRAM_USERID        = 'instagram_user_id';
     const INSTAGRAM_CHANNEL       = 'instagram_channel';
     const INSTAGRAM_NUMBER_PHOTOS = 'number_photos';
 
