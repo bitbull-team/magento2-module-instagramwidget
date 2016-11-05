@@ -34,8 +34,9 @@ To retrieve the data of your channel follow the official instagram doc: https://
 Changelog
 ----------
 
+* 2.1.0 - Added admin setting for display on homepage and block hinting for IDE in template
 * 2.0.0 - Added configuration in admin to make module reusable
-* 1.0.0 - first release
+* 1.0.0 - First release
 
 
 Licence
