@@ -23,6 +23,7 @@
       padding: 0;
       li {
         list-style: none;
+        position: relative;
         padding: 15px;
         width: 50%;
         float: left;
@@ -37,31 +38,46 @@
         &.like-hover {
           position: relative;
           .mask {
-            transition: all 0.4s ease-in-out;
-            display: none;
-            background: #000;
+            transition: all 0.2s ease-in-out;
+            overflow: hidden;
             color: #fff;
             position: absolute;
             top: 15px;
             left: 15px;
-            bottom: 15px;
+            bottom: 20px;
             right: 15px;
             span {
               transition: all 0.2s ease-in-out;
-              transform: translateY(100px);
-              opacity: 0;
+              font-size: 25px;
               position: absolute;
               top: -200px;
+              &:before {
+                background: url("../Bitbull_InstagramWidget/images/heart.png") no-repeat;
+                background-size: 20px;
+                content: '';
+                display: block;
+                width: 20px;
+                height: 20px;
+                position: absolute;
+                left: -30px;
+                transform: translate(0,-50%);
+                -webkit-transform: translate(0,-50%);
+                top: 50%;
+              }
             }
           }
           &:hover {
             .mask {
-               display: block;
+              display: block;
+              background: rgba(0,0,0,0.9);
               span {
-                transition-delay: 0.1s;
-                transform: translateY(100px);
+                transition-delay: 0.4s;
                 opacity: 1;
-                top: 200px;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%,-50%);
+                -webkit-transform: translate(-50%,-50%);
               }
             }
           }

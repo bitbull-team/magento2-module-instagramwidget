@@ -38,10 +38,7 @@ define([
                 stream = $('#bb-insta-stream'),
                 that = this;
 
-            console.log(this);
-
             this._request( request, function(data) {
-                console.log(data);
                 for(x in data.data){
                     var items = [];
                     photo = data.data[x];
@@ -63,7 +60,7 @@ define([
         showLikeOnHover: function ( stream ) {
             $.each(stream.find('li'), function () {
                 $(this).addClass('like-hover')
-                    .append('<div class="mask"><span>' + $(this).attr("data-like") + '<span></div>');
+                    .append('<div class="mask"><span>' + $(this).attr("data-like") + '</span></div>');
             });
         }
 
