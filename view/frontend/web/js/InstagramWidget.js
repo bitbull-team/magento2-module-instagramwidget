@@ -51,7 +51,7 @@ define([
 
                     stream .append(items.join(''));
                 }
-                if ( that.options.show_like = true ) {
+                if ( that.options.show_like == 1 ) {
                     that.showLikeOnHover( stream );
                 }
             });

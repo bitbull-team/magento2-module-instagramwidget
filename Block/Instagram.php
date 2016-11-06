@@ -91,7 +91,7 @@ class Instagram extends \Magento\Framework\View\Element\Template
      */
     protected function _getShowLikeNumber()
     {
-        return (bool) $this->configHelper->getConfigParam(InstagramConfig::INSTAGRAM_SHOW_LIKE_NUMBER);
+        return $this->configHelper->getConfigParam(InstagramConfig::INSTAGRAM_SHOW_LIKE_NUMBER);
     }
 
 }
