@@ -39,7 +39,8 @@ class Instagram extends \Magento\Framework\View\Element\Template
             'token'      => $this->_getInstagramToken(),
             'userid'     => $this->_getInstagramUserId(),
             'channel'    => $this->_getInstagramChannel(),
-            'num_photos' => $this->_getInstagramNumberPhotos()
+            'num_photos' => $this->_getInstagramNumberPhotos(),
+            'show_like'  => $this->_getShowLikeNumber()
         ];
     }
 
@@ -81,6 +82,16 @@ class Instagram extends \Magento\Framework\View\Element\Template
     protected function _getInstagramNumberPhotos()
     {
         return (string) $this->configHelper->getConfigParam(InstagramConfig::INSTAGRAM_NUMBER_PHOTOS);
+    }
+
+    /**
+     * Display like
+     *
+     * @return Bool
+     */
+    protected function _getShowLikeNumber()
+    {
+        return (bool) $this->configHelper->getConfigParam(InstagramConfig::INSTAGRAM_SHOW_LIKE_NUMBER);
     }
 
 }
