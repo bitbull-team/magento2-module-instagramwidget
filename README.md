@@ -34,6 +34,7 @@ To retrieve the data of your channel follow the official instagram doc: https://
 Changelog
 ----------
 
+* 3.0.0 - Update dependency for magento 2.1
 * 2.2.1 - Fix like display configuration bug
 * 2.2.0 - Added like numbers on image hover width admin config
 * 2.1.0 - Added admin setting for display on homepage and block hinting for IDE in template
