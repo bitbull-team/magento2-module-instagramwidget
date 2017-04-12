@@ -9,7 +9,7 @@ Add these lines to the composer.json of your project
 ```
 "require":{
     ...
-    "bitbull/magento2-module-instagramwidget": "dev-master"
+    "bitbull/magento2-module-instagramwidget": "3.0.0"
  }
  ```
  
