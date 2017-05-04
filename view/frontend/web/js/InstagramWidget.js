@@ -42,19 +42,13 @@ define([
          * @param config
          * @private
          */
-        
+
         _getStreamData: function (config) {
 
             var cookie = $.mage.cookies.get('instagram_stream');
-
             if (cookie == null) {
-                this._apiCall(
-                    config.token,
-                    config.userid,
-                    config.num_photos
-                );
+                this._apiCall(config);
             } else {
-
                 this._setStream(cookie);
             }
 
@@ -63,16 +57,14 @@ define([
         /**
          * API call
          *
-         * @param token
-         * @param userid
-         * @param num_photos
+         * @param config
          * @private
          */
 
-        _apiCall: function(token, userid, num_photos) {
+        _apiCall: function(config) {
 
             var route = '/media/recent',
-                url   = 'https://api.instagram.com/v1/users/' + userid + route,
+                url   = 'https://api.instagram.com/v1/users/' + config.userid + route,
                 that  = this;
 
             $.ajax({
@@ -80,13 +72,13 @@ define([
                 dataType: 'jsonp',
                 type: 'GET',
                 data: {
-                    access_token: token,
-                    count: num_photos
+                    access_token: config.token,
+                    count: config.num_photos
                 },
                 success: function(data){
                     var html = that._render(data);
                     that._setStream(html);
-                    that._setCookie(html);
+                    that._setCookie(html, config.frequency);
                 },
                 error: function(data){
                     console.error('Error: '+ data);
@@ -99,12 +91,13 @@ define([
          * Set cookie
          *
          * @param data
+         * @param time
          * @private
          */
 
-        _setCookie: function (data) {
+        _setCookie: function (data, time) {
             $.mage.cookies.set('instagram_stream', data,
-                {lifetime: 90000000 });
+                {lifetime: time });
         },
 
         /**
