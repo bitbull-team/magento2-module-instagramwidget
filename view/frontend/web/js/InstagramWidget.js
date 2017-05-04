@@ -7,9 +7,8 @@ define([
 
             var config = this.options;
 
-            this._getChannel(config.channel);
-            this._apiCall(config.token, config.userid, config.num_photos);
-
+            this._setChannel(config.channel);
+            this._getStreamData(config);
         },
 
         /**
@@ -21,21 +20,29 @@ define([
 
         _render: function (data) {
 
-            var stream = $('#bb-insta-stream');
-
+            var html = '';
             $.each(data.data, function () {
 
-                stream.append(
+                var img = this.images.low_resolution.url,
+                    url = this.link;
 
-                    '<li class="photo-'+ 1 +'">'+
-                    '<a TARGET="_blank"'+
-                    'href="' +  this.link +'">'+
-                    '<img src=" '+  this.images.low_resolution.url  +'"/>'+
+                html += '<li>' +
+                    '<a TARGET="_blank" href="' +  url +'">' +
+                    '<img src=" '+ img +'"/>'+
                     '</a>'+
-                    '</li>'
-                );
-
+                    '</li>';
             });
+
+            return html;
+        },
+
+        _getStreamData: function (config) {
+            this._apiCall(config.token, config.userid, config.num_photos);
+
+            var cookie = 'instagram_stream',
+                storedStream = $.mage.cookies.get(cookie);
+
+            this._setStream(storedStream);
         },
 
         /**
@@ -62,7 +69,9 @@ define([
                     count: num_photos
                 },
                 success: function(data){
-                    that._render(data);
+                    var html = that._render(data);
+                    that._setStream(html);
+                    that._setCookie(html);
                 },
                 error: function(data){
                     console.error('Error: '+ data);
@@ -70,16 +79,38 @@ define([
             });
         },
 
+
         /**
-         * TODO: Restore this function
-         * @param stream
+         * Set cookie
+         *
+         * @param data
+         * @private
          */
 
-        showLikeOnHover: function ( stream ) {
+        _setCookie: function (data) {
+            $.mage.cookies.set('instagram_stream', data,
+                {lifetime: 90000000 });
+        },
+
+        /**
+         * TODO: Restore this function
+         */
+
+        _showLikeOnHover: function ( stream ) {
             $.each(stream.find('li'), function () {
                 $(this).addClass('like-hover')
                     .append('<div class="mask"><span>' + $(this).attr("data-like") + '</span></div>');
             });
+        },
+
+        /**
+         * @param stream
+         * @private
+         */
+
+        _setStream: function (stream) {
+            $('#bb-insta-stream').append(stream);
+
         },
 
 
@@ -88,7 +119,7 @@ define([
          * @private
          */
 
-        _getChannel: function(channel) {
+        _setChannel: function(channel) {
             $('#bb-insta-title').append(channel);
         }
 
