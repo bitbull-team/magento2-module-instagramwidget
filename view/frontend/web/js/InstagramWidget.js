@@ -1,5 +1,7 @@
 define([
-    "jquery"
+    "jquery",
+    "mage/cookies"
+
 ], function($){
     $.widget('InstagramWidget.js', {
 
@@ -36,13 +38,26 @@ define([
             return html;
         },
 
+        /**
+         * @param config
+         * @private
+         */
+        
         _getStreamData: function (config) {
-            this._apiCall(config.token, config.userid, config.num_photos);
 
-            var cookie = 'instagram_stream',
-                storedStream = $.mage.cookies.get(cookie);
+            var cookie = $.mage.cookies.get('instagram_stream');
 
-            this._setStream(storedStream);
+            if (cookie == null) {
+                this._apiCall(
+                    config.token,
+                    config.userid,
+                    config.num_photos
+                );
+            } else {
+
+                this._setStream(cookie);
+            }
+
         },
 
         /**
