@@ -1,8 +1,7 @@
 define([
     "jquery",
     'jquery/ui',
-    "mage/cookies",
-    "domReady!"
+    'jquery/jquery.cookie'
 
 ], function($){
 
@@ -48,7 +47,7 @@ define([
 
         _getStreamData: function (config) {
 
-            var cookie = $.mage.cookies.get('instagram_stream');
+            var cookie = $.cookie('instagram_stream');
             if (cookie == null) {
                 this._apiCall(config);
             } else {
@@ -99,8 +98,9 @@ define([
          */
 
         _setCookie: function (data, time) {
-            $.mage.cookies.set('instagram_stream', data,
-                {lifetime: time });
+            $.cookie('instagram_stream', data, {
+                expires: parseFloat(time)
+            });
         },
 
         /**
