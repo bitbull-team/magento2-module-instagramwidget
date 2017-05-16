@@ -1,8 +1,11 @@
 define([
     "jquery",
-    "mage/cookies"
+    'jquery/ui',
+    "mage/cookies",
+    "domReady!"
 
 ], function($){
+
     $.widget('InstagramWidget.js', {
 
         _create: function() {
