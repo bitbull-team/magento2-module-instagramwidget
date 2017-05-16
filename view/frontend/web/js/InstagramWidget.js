@@ -1,67 +1,137 @@
 define([
-    "jquery"
+    "jquery",
+    'jquery/ui',
+    'jquery/jquery.cookie'
+
 ], function($){
+
     $.widget('InstagramWidget.js', {
 
         _create: function() {
-            this.getChannel();
-        },
 
-        _request: function (api , success) {
             var config = this.options;
 
-            return $.ajax({
-                url: api,
+            this._setChannel(config.channel);
+            this._getStreamData(config);
+        },
+
+        /**
+         * Render photo stream
+         *
+         * @param data
+         * @private
+         */
+
+        _render: function (data) {
+
+            var html = '';
+            $.each(data.data, function () {
+
+                var img = this.images.low_resolution.url,
+                    url = this.link;
+
+                html += '<li>' +
+                    '<a TARGET="_blank" href="' +  url +'">' +
+                    '<img src=" '+ img +'"/>'+
+                    '</a>'+
+                    '</li>';
+            });
+
+            return html;
+        },
+
+        /**
+         * @param config
+         * @private
+         */
+
+        _getStreamData: function (config) {
+
+            var cookie = $.cookie('instagram_stream');
+            if (cookie == null) {
+                this._apiCall(config);
+            } else {
+                this._setStream(cookie);
+            }
+
+        },
+
+        /**
+         * API call
+         *
+         * @param config
+         * @private
+         */
+
+        _apiCall: function(config) {
+
+            var route = '/media/recent',
+                url   = 'https://api.instagram.com/v1/users/' + config.userid + route,
+                that  = this;
+
+            $.ajax({
+                url: url,
                 dataType: 'jsonp',
                 type: 'GET',
                 data: {
                     access_token: config.token,
                     count: config.num_photos
                 },
-                success: success,
+                success: function(data){
+                    var html = that._render(data);
+                    that._setStream(html);
+                    that._setCookie(html, config.frequency);
+                },
                 error: function(data){
                     console.error('Error: '+ data);
                 }
             });
         },
 
-        getChannel: function() {
 
-            $('#bb-insta-title').append(this.options.channel);
-            this.getChannelStream();
+        /**
+         * Set cookie
+         *
+         * @param data
+         * @param time
+         * @private
+         */
 
-        },
-
-        getChannelStream: function () {
-            var url = 'https://api.instagram.com/v1/users/',
-                request = url + this.options.userid + '/media/recent',
-                stream = $('#bb-insta-stream'),
-                that = this;
-
-            this._request( request, function(data) {
-                for(x in data.data){
-                    var items = [];
-                    photo = data.data[x];
-                    items.push('<li data-like="'+ photo.likes.count +'" class="photo-'+ x +'">',
-                        '<a TARGET="_blank"',
-                        'href="' +  photo.link +'">',
-                        '<img src=" '+ photo.images.low_resolution.url  +'"/>',
-                        '</a>',
-                        '</li>');
-
-                    stream .append(items.join(''));
-                }
-                if ( that.options.show_like == 1 ) {
-                    that.showLikeOnHover( stream );
-                }
+        _setCookie: function (data, time) {
+            $.cookie('instagram_stream', data, {
+                expires: parseFloat(time)
             });
         },
 
-        showLikeOnHover: function ( stream ) {
+        /**
+         * TODO: Restore this function
+         */
+
+        _showLikeOnHover: function ( stream ) {
             $.each(stream.find('li'), function () {
                 $(this).addClass('like-hover')
                     .append('<div class="mask"><span>' + $(this).attr("data-like") + '</span></div>');
             });
+        },
+
+        /**
+         * @param stream
+         * @private
+         */
+
+        _setStream: function (stream) {
+            $('#bb-insta-stream').append(stream);
+
+        },
+
+
+        /**
+         * @param channel
+         * @private
+         */
+
+        _setChannel: function(channel) {
+            $('#bb-insta-title').append(channel);
         }
 
     });

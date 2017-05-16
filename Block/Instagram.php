@@ -36,11 +36,12 @@ class Instagram extends \Magento\Framework\View\Element\Template
     public function getConfig()
     {
         return [
-            'token'      => $this->_getInstagramToken(),
-            'userid'     => $this->_getInstagramUserId(),
-            'channel'    => $this->_getInstagramChannel(),
-            'num_photos' => $this->_getInstagramNumberPhotos(),
-            'show_like'  => $this->_getShowLikeNumber()
+            'token'       => $this->_getInstagramToken(),
+            'userid'      => $this->_getInstagramUserId(),
+            'channel'     => $this->_getInstagramChannel(),
+            'num_photos'  => $this->_getInstagramNumberPhotos(),
+            'show_like'   => $this->_getShowLikeNumber(),
+            'frequency'   => $this->_getApiCallFrequency()
         ];
     }
 
@@ -82,6 +83,16 @@ class Instagram extends \Magento\Framework\View\Element\Template
     protected function _getInstagramNumberPhotos()
     {
         return (string) $this->configHelper->getConfigParam(InstagramConfig::INSTAGRAM_NUMBER_PHOTOS);
+    }
+
+    /**
+     * Number of Instagram photos.
+     *
+     * @return string Cast int config value to string
+     */
+    protected function _getApiCallFrequency()
+    {
+        return (string) $this->configHelper->getConfigParam(InstagramConfig::INSTAGRAM_API_CALL_FREQUENCY);
     }
 
     /**
