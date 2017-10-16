@@ -34,6 +34,7 @@ To retrieve the data of your channel follow the official instagram doc: https://
 Changelog
 ----------
 
+* 4.1.0 - Use only cropped images
 * 4.0.0 - API call optimization / Added configuration to do less call
 * 3.0.0 - Update dependency for magento 2.1
 * 2.2.1 - Fix like display configuration bug

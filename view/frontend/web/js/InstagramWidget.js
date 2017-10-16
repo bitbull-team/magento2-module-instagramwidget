@@ -92,7 +92,6 @@ define([
                     count: config.num_photos
                 },
                 success: function(data){
-                    console.log(data);
                     var html = that._render(data);
                     that._setStream(html);
                     that._setCookie(html, config.frequency);
