@@ -24,10 +24,11 @@ define([
 
         _render: function (data) {
 
-            var html = '';
-            $.each(data.data, function () {
+            var html = '',
+                that = this;
 
-                var img = this.images.low_resolution.url,
+            $.each(data.data, function () {
+                var img = that._getImageRatio(this.images.thumbnail.url),
                     url = this.link;
 
                 html += '<li>' +
@@ -57,6 +58,19 @@ define([
         },
 
         /**
+         * TODO: Make it configurable
+         *
+         * @param thumbnail
+         * @returns {*}
+         * @private
+         */
+
+
+        _getImageRatio: function (thumbnail) {
+            return thumbnail.replace('s150x150/', 's320x320/');
+        },
+
+        /**
          * API call
          *
          * @param config
@@ -78,6 +92,7 @@ define([
                     count: config.num_photos
                 },
                 success: function(data){
+                    console.log(data);
                     var html = that._render(data);
                     that._setStream(html);
                     that._setCookie(html, config.frequency);
@@ -103,16 +118,6 @@ define([
             });
         },
 
-        /**
-         * TODO: Restore this function
-         */
-
-        _showLikeOnHover: function ( stream ) {
-            $.each(stream.find('li'), function () {
-                $(this).addClass('like-hover')
-                    .append('<div class="mask"><span>' + $(this).attr("data-like") + '</span></div>');
-            });
-        },
 
         /**
          * @param stream
