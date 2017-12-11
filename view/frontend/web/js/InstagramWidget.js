@@ -28,8 +28,12 @@ define([
                 that = this;
 
             $.each(data.data, function () {
-                var img = that._getImageRatio(this.images.thumbnail.url),
+                var img = this.images.low_resolution.url,
                     url = this.link;
+
+                if (that.options.cropped_images == 1) {
+                    img = that._getSquaredPhoto(this.images.thumbnail.url);
+                }
 
                 html += '<li>' +
                     '<a TARGET="_blank" href="' +  url +'">' +
@@ -58,7 +62,7 @@ define([
         },
 
         /**
-         * TODO: Make it configurable
+         * Get Squared Photo if config
          *
          * @param thumbnail
          * @returns {*}
@@ -66,7 +70,7 @@ define([
          */
 
 
-        _getImageRatio: function (thumbnail) {
+        _getSquaredPhoto: function (thumbnail) {
             return thumbnail.replace('s150x150/', 's320x320/');
         },
 

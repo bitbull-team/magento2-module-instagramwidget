@@ -9,7 +9,7 @@ Add these lines to the composer.json of your project
 ```
 "require":{
     ...
-    "bitbull/magento2-module-instagramwidget": "4.0.0"
+    "bitbull/magento2-module-instagramwidget": "4.2.0"
  }
  ```
  
@@ -34,6 +34,7 @@ To retrieve the data of your channel follow the official instagram doc: https://
 Changelog
 ----------
 
+* 4.2.0 - Squared image configuration
 * 4.1.0 - Use only cropped images
 * 4.0.0 - API call optimization / Added configuration to do less call
 * 3.0.0 - Update dependency for magento 2.1

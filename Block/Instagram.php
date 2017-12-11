@@ -36,12 +36,13 @@ class Instagram extends \Magento\Framework\View\Element\Template
     public function getConfig()
     {
         return [
-            'token'       => $this->_getInstagramToken(),
-            'userid'      => $this->_getInstagramUserId(),
-            'channel'     => $this->_getInstagramChannel(),
-            'num_photos'  => $this->_getInstagramNumberPhotos(),
-            'show_like'   => $this->_getShowLikeNumber(),
-            'frequency'   => $this->_getApiCallFrequency()
+            'token'          => $this->_getInstagramToken(),
+            'userid'         => $this->_getInstagramUserId(),
+            'channel'        => $this->_getInstagramChannel(),
+            'num_photos'     => $this->_getInstagramNumberPhotos(),
+            'show_like'      => $this->_getShowLikeNumber(),
+            'frequency'      => $this->_getApiCallFrequency(),
+            'cropped_images' => $this->_getImagesAreCropped()
         ];
     }
 
@@ -103,6 +104,15 @@ class Instagram extends \Magento\Framework\View\Element\Template
     protected function _getShowLikeNumber()
     {
         return $this->configHelper->getConfigParam(InstagramConfig::INSTAGRAM_SHOW_LIKE_NUMBER);
+    }
+
+    /**
+     * @return mixed
+     */
+
+    protected function _getImagesAreCropped()
+    {
+        return $this->configHelper->getConfigParam(InstagramConfig::INSTAGRAM_CROPPED_IMAGES);
     }
 
 }

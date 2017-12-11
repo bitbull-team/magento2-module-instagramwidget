@@ -15,6 +15,7 @@ class Config extends AbstractHelper
     const INSTAGRAM_NUMBER_PHOTOS      = 'number_photos';
     const INSTAGRAM_SHOW_LIKE_NUMBER   = 'show_like_number';
     const INSTAGRAM_API_CALL_FREQUENCY = 'frequency';
+    const INSTAGRAM_CROPPED_IMAGES     = 'cropped_images';
 
     /**
      * @param Context $context
