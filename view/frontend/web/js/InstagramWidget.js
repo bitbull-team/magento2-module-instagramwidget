@@ -71,7 +71,8 @@ define([
 
 
         _getSquaredPhoto: function (thumbnail) {
-            return thumbnail.replace('s150x150/', 's320x320/');
+            var thumb = thumbnail.replace('s150x150/', 's320x320/');
+            return thumb.replace(/vp\/[^\/]*/, 'hphotos-xfp1');
         },
 
         /**
