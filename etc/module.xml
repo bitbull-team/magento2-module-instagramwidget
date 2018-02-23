@@ -4,6 +4,7 @@
     <module name="Bitbull_InstagramWidget" setup_version="1.0.0">
         <sequence>
             <module name="Magento_Cms"/>
+            <module name="Bitbull_Common"/>
         </sequence>
     </module>
 </config>
