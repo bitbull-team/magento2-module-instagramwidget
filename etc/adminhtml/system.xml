@@ -4,7 +4,7 @@
         <tab id="bitbull" translate="label" sortOrder="200">
             <label><![CDATA[<span class='bitbull-logo'>Bitbull</span>]]></label>
         </tab>
-        <section id="bitbull_instagramwidget" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+        <section id="bitbull_instagramwidget" translate="label" type="text" sortOrder="100" showInDefault="1" showInWebsite="1" showInStore="1">
             <label>Instagram Widget</label>
             <tab>bitbull</tab>
             <resource>Magento_Config::config_admin</resource>
