@@ -29,7 +29,7 @@ define([
 
             $.each(data.data, function () {
                 var img = that._getImg(this),
-                    url = data.link;
+                    url = this.link;
 
                 html += '<li>' +
                     '<a TARGET="_blank" href="' +  url +'">' +
