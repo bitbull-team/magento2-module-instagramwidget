@@ -26,13 +26,13 @@ Add these lines to the composer.json of your project
 Settings
 --------
 
-After install go to M2 admin configuration and in the instagram widget tab add:
+After install go to M2 admin configuration and in the Bitbull > Instagram widget tab add:
  * Instagram Token Credentials
  * Instagram Userid Credentials
  * Channel name to display 
  * Numbers of photo 
  
-To retrieve the data of your channel follow the official instagram doc: https://www.instagram.com/developer/authentication/
+To retrieve the data of your channel follow the official Instagram doc: https://www.instagram.com/developer/authentication/
 
 Changelog
 ----------
@@ -60,7 +60,8 @@ Licence
 Developers
 ---------
 
-Irene Iaccio(@nuovecode): http://www.bitbull.it
+Irene Iaccio(@nuovecode): http://www.bitbull.it  
+Lorena Ramonda (@loreenaramonda): http://www.bitbull.it 
 
 Rodrigo Acuna: https://github.com/rodde177
 
