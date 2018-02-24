@@ -31,7 +31,7 @@ define([
                 var img = this.images.low_resolution.url,
                     url = this.link;
 
-                if (that.options.cropped_images === 1) {
+                if (that.options.cropped_images == 1) {
                     img = that._getSquaredPhoto(this.images.thumbnail.url);
                 }
 
