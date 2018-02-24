@@ -12,7 +12,7 @@
                 <block class="Bitbull\InstagramWidget\Block\Instagram"
                        name="instagram.widget"
                        template="Bitbull_InstagramWidget::instagram-widget.phtml"
-                       ifconfig="bitbull/settings/enabled_homepage">
+                       ifconfig="bitbull_instragramwidget/settings/enabled_homepage">
                     <arguments>
                         <argument translate="true" name="title" xsi:type="string">Instagram</argument>
                     </arguments>

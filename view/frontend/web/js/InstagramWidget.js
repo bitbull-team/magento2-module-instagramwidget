@@ -30,7 +30,7 @@ define([
             $.each(data.data, function () {
                 var img = that._getImg(this),
                     url = data.link;
-                
+
                 html += '<li>' +
                     '<a TARGET="_blank" href="' +  url +'">' +
                     '<img src=" '+ img +'"/>'+
