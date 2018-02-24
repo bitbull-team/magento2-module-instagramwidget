@@ -28,12 +28,8 @@ define([
                 that = this;
 
             $.each(data.data, function () {
-                var img = this.images.low_resolution.url,
+                var img = that._getImg(this),
                     url = this.link;
-
-                if (that.options.cropped_images == 1) {
-                    img = that._getSquaredPhoto(this.images.thumbnail.url);
-                }
 
                 html += '<li>' +
                     '<a TARGET="_blank" href="' +  url +'">' +
@@ -59,6 +55,26 @@ define([
                 this._setStream(cookie);
             }
 
+        },
+
+        /**
+         * Get Photo
+         *
+         * @param data
+         * @returns {*}
+         * @private
+         */
+
+
+        _getImg: function (data) {
+            var that = this,
+                image = data.images.low_resolution.url;
+
+            if (that.options.cropped_images == 1) {
+                image = that._getSquaredPhoto(data.images.thumbnail.url);
+            }
+
+            return image;
         },
 
         /**

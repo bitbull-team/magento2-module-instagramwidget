@@ -1,22 +1,25 @@
 # Instagram widget #
 
-Magento module 2 that displays last photos from an instagram account. More information here https://www.bitbull.it/blog/sviluppare-un-widget-con-magento2-e-requirejs/
+Magento module 2 that displays last photos from an Instagram account. More information here https://www.bitbull.it/blog/sviluppare-un-widget-con-magento2-e-requirejs/
 
 Installation Instructions
 --------------------------
 Add these lines to the composer.json of your project
 
 ```
-"require":{
+"require": {
     ...
-    "bitbull/magento2-module-instagramwidget": "4.2.0"
+    "bitbull/magento2-module-instagramwidget": "5.0.0"
  }
  ```
  
  ```
- "repositories":[
+ "repositories": [
       ...
-     {"type": "vcs", "url":"https://github.com/bitbull-team/magento2-module-instagramwidget.git"}
+     {
+        "type": "vcs",
+        "url":"https://github.com/bitbull-team/magento2-module-instagramwidget.git"
+     }
  ]
 ```
 
@@ -34,6 +37,7 @@ To retrieve the data of your channel follow the official instagram doc: https://
 Changelog
 ----------
 
+* 5.0.0 - Moved module under Bitbull tab and moved img getter in a separate function
 * 4.3.1 - Fix on comparison operator
 * 4.3.0 - Fix squared images url
 * 4.2.0 - Squared image configuration
