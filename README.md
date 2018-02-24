@@ -34,7 +34,8 @@ To retrieve the data of your channel follow the official instagram doc: https://
 Changelog
 ----------
 
-* 4.3.0 - Fix squared imges url
+* 4.3.1 - Fix on comparison operator
+* 4.3.0 - Fix squared images url
 * 4.2.0 - Squared image configuration
 * 4.1.0 - Use only cropped images
 * 4.0.0 - API call optimization / Added configuration to do less call
