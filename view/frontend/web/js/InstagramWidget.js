@@ -31,7 +31,7 @@ define([
                 var img = this.images.low_resolution.url,
                     url = this.link;
 
-                if (that.options.cropped_images == 1) {
+                if (that.options.cropped_images === 1) {
                     img = that._getSquaredPhoto(this.images.thumbnail.url);
                 }
 
@@ -71,7 +71,8 @@ define([
 
 
         _getSquaredPhoto: function (thumbnail) {
-            return thumbnail.replace('s150x150/', 's320x320/');
+            var thumb = thumbnail.replace('s150x150/', 's320x320/');
+            return thumb.replace(/vp\/[^\/]*/, 'hphotos-xfp1');
         },
 
         /**
