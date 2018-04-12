@@ -8,7 +8,7 @@ use Magento\Framework\App\Helper\Context;
 class Config extends AbstractHelper
 {
 
-    const BASE_CONFIG_XML_PREFIX       = 'instagram/settings/%s';
+    const BASE_CONFIG_XML_PREFIX       = 'bitbull_instagramwidget/settings/%s';
     const INSTAGRAM_TOKEN              = 'instagram_token';
     const INSTAGRAM_USERID             = 'instagram_user_id';
     const INSTAGRAM_CHANNEL            = 'instagram_channel';
@@ -40,4 +40,3 @@ class Config extends AbstractHelper
     }
 
 }
- 

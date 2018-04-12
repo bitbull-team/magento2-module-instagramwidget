@@ -2,6 +2,8 @@
 
 Magento module 2 that displays last photos from an Instagram account. More information here https://www.bitbull.it/blog/sviluppare-un-widget-con-magento2-e-requirejs/
 
+![](https://raw.githubusercontent.com/bitbull-team/magento2-module-instagramwidget/develop/docs/frontend.png)
+
 Installation Instructions
 --------------------------
 Add these lines to the composer.json of your project
@@ -31,7 +33,8 @@ After install go to Magento2 admin in **Stores -> Configuration -> Bitbull -> In
  * Instagram Userid Credentials
  * Channel title to display on frontend 
  * Number of photos 
-
+ 
+![](https://raw.githubusercontent.com/bitbull-team/magento2-module-instagramwidget/develop/docs/admin-panel.png)
 
 To retrieve the data of your channel follow the official Instagram doc: https://www.instagram.com/developer/authentication/
 

@@ -32,8 +32,8 @@ define([
                     url = this.link;
 
                 html += '<li>' +
-                    '<a TARGET="_blank" href="' +  url +'">' +
-                    '<img src=" '+ img +'"/>'+
+                    '<a target="_blank" href="' + url +'">' +
+                    '<img src="'+ img +'"/>'+
                     '</a>'+
                     '</li>';
             });
@@ -87,8 +87,11 @@ define([
 
 
         _getSquaredPhoto: function (thumbnail) {
-            var thumb = thumbnail.replace('s150x150/', 's320x320/');
-            return thumb.replace(/vp\/[^\/]*/, 'hphotos-xfp1');
+            // var thumb = thumbnail.replace('s150x150/', 's320x320/');
+            // return thumb.replace(/vp\/[^\/]*/, 'hphotos-xfp1');
+
+            // this needs to be fixed, no longer working
+            return thumbnail;
         },
 
         /**
