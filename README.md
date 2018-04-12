@@ -26,12 +26,13 @@ Add these lines to the composer.json of your project
 Settings
 --------
 
-After install go to M2 admin configuration and in the Bitbull > Instagram widget tab add:
+After install go to Magento2 admin in **Stores -> Configuration -> Bitbull -> Instagram widget** and set:
  * Instagram Token Credentials
  * Instagram Userid Credentials
- * Channel name to display 
- * Numbers of photo 
- 
+ * Channel title to display on frontend 
+ * Number of photos 
+
+
 To retrieve the data of your channel follow the official Instagram doc: https://www.instagram.com/developer/authentication/
 
 Changelog
