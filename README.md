@@ -2,6 +2,8 @@
 
 Magento module 2 that displays last photos from an Instagram account. More information here https://www.bitbull.it/blog/sviluppare-un-widget-con-magento2-e-requirejs/
 
+![](https://raw.githubusercontent.com/bitbull-team/magento2-module-instagramwidget/develop/docs/frontend.png)
+
 Installation Instructions
 --------------------------
 Add these lines to the composer.json of your project
@@ -9,7 +11,7 @@ Add these lines to the composer.json of your project
 ```
 "require": {
     ...
-    "bitbull/magento2-module-instagramwidget": "5.0.0"
+    "bitbull/magento2-module-instagramwidget": "5.1.0"
  }
  ```
  
@@ -26,17 +28,20 @@ Add these lines to the composer.json of your project
 Settings
 --------
 
-After install go to M2 admin configuration and in the Bitbull > Instagram widget tab add:
+After install go to Magento2 admin in **Stores -> Configuration -> Bitbull -> Instagram widget** and set:
  * Instagram Token Credentials
  * Instagram Userid Credentials
- * Channel name to display 
- * Numbers of photo 
+ * Channel title to display on frontend 
+ * Number of photos 
  
+![](https://raw.githubusercontent.com/bitbull-team/magento2-module-instagramwidget/develop/docs/admin-panel.png)
+
 To retrieve the data of your channel follow the official Instagram doc: https://www.instagram.com/developer/authentication/
 
 Changelog
 ----------
 
+* 5.1.0 - Set correct common Bitbull module reference, fix on js and temporary removed trick for square images because it's not working again due to Instagram urls
 * 5.0.0 - Moved module under Bitbull tab and moved img getter in a separate function
 * 4.3.1 - Fix on comparison operator
 * 4.3.0 - Fix squared images url
