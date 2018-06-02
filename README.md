@@ -11,7 +11,7 @@ Add these lines to the composer.json of your project
 ```
 "require": {
     ...
-    "bitbull/magento2-module-instagramwidget": "5.1.0"
+    "bitbull/magento2-module-instagramwidget": "5.1.1"
  }
  ```
  
@@ -41,6 +41,7 @@ To retrieve the data of your channel follow the official Instagram doc: https://
 Changelog
 ----------
 
+* 5.1.1 - Updated php module's dependencies
 * 5.1.0 - Set correct common Bitbull module reference, fix on js and temporary removed trick for square images because it's not working again due to Instagram urls
 * 5.0.0 - Moved module under Bitbull tab and moved img getter in a separate function
 * 4.3.1 - Fix on comparison operator
