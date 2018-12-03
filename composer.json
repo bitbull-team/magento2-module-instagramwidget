@@ -1,7 +1,7 @@
 {
   "name": "bitbull/magento2-module-instagramwidget",
   "description": "Instagram stream for Magento2",
-  "license": "Open Software License (OSL)",
+  "license": "OSL-3.0",
   "authors": [
     {
       "name": "Irene Iaccio",
@@ -14,7 +14,7 @@
   ],
   "require": {
     "php": "~5.5.0|~5.6.0|~7.0.0|~7.1.0|~7.2.0",
-    "bitbull/common-m2": "*"
+    "bitbull/common-m2": "0.4.0"
   },
   "type": "magento2-module",
   "autoload": {
