@@ -73,7 +73,7 @@ class Instagram extends \Magento\Framework\View\Element\Template
      */
     protected function _getInstagramChannel()
     {
-        return (string) $this->escapeHtml($this->configHelper->getConfigParam(InstagramConfig::INSTAGRAM_CHANNEL));
+        return (string) $this->escapeHtml($this->configHelper->getConfigFrontend(InstagramConfig::INSTAGRAM_CHANNEL));
     }
 
     /**
@@ -83,7 +83,7 @@ class Instagram extends \Magento\Framework\View\Element\Template
      */
     protected function _getInstagramNumberPhotos()
     {
-        return (string) $this->configHelper->getConfigParam(InstagramConfig::INSTAGRAM_NUMBER_PHOTOS);
+        return (string) $this->configHelper->getConfigFrontend(InstagramConfig::INSTAGRAM_NUMBER_PHOTOS);
     }
 
     /**
@@ -93,7 +93,7 @@ class Instagram extends \Magento\Framework\View\Element\Template
      */
     protected function _getApiCallFrequency()
     {
-        return (string) $this->configHelper->getConfigParam(InstagramConfig::INSTAGRAM_API_CALL_FREQUENCY);
+        return (string) $this->configHelper->getConfigFrontend(InstagramConfig::INSTAGRAM_API_CALL_FREQUENCY);
     }
 
     /**
@@ -103,7 +103,7 @@ class Instagram extends \Magento\Framework\View\Element\Template
      */
     protected function _getShowLikeNumber()
     {
-        return $this->configHelper->getConfigParam(InstagramConfig::INSTAGRAM_SHOW_LIKE_NUMBER);
+        return $this->configHelper->getConfigFrontend(InstagramConfig::INSTAGRAM_SHOW_LIKE_NUMBER);
     }
 
     /**
@@ -112,7 +112,7 @@ class Instagram extends \Magento\Framework\View\Element\Template
 
     protected function _getImagesAreCropped()
     {
-        return $this->configHelper->getConfigParam(InstagramConfig::INSTAGRAM_CROPPED_IMAGES);
+        return $this->configHelper->getConfigFrontend(InstagramConfig::INSTAGRAM_CROPPED_IMAGES);
     }
 
 }

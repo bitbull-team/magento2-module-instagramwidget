@@ -5,7 +5,7 @@ define([
 
 ], function($){
 
-    $.widget('InstagramWidget.js', {
+    $.widget('bitbull.instagramWidget', {
 
         _create: function() {
 
@@ -164,6 +164,6 @@ define([
 
     });
 
-    return $.InstagramWidget.js;
+    return $.bitbull.instagramWidget;
 
 });
