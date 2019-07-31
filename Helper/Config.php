@@ -8,7 +8,8 @@ use Magento\Framework\App\Helper\Context;
 class Config extends AbstractHelper
 {
 
-    const BASE_CONFIG_XML_PREFIX       = 'bitbull_instagramwidget/settings/%s';
+    const BASE_CONFIG_XML_PREFIX       = 'bitbull_instagramwidget/configuration/%s';
+    const BASE_FRONTEND_XML_PREFIX     = 'bitbull_instagramwidget/frontend/%s';
     const INSTAGRAM_TOKEN              = 'instagram_token';
     const INSTAGRAM_USERID             = 'instagram_user_id';
     const INSTAGRAM_CHANNEL            = 'instagram_channel';
@@ -35,6 +36,20 @@ class Config extends AbstractHelper
     {
         return $this->scopeConfig->getValue(
             sprintf(self::BASE_CONFIG_XML_PREFIX, $configField),
+            \Magento\Store\Model\ScopeInterface::SCOPE_STORE
+        );
+    }
+
+    /**
+     * Return frontend settings from module admin settings
+     *
+     * @param string $configField
+     * @return mixed
+     */
+    public function getConfigFrontend($configField)
+    {
+        return $this->scopeConfig->getValue(
+            sprintf(self::BASE_FRONTEND_XML_PREFIX, $configField),
             \Magento\Store\Model\ScopeInterface::SCOPE_STORE
         );
     }
