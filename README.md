@@ -11,7 +11,7 @@ Add these lines to the composer.json of your project
 ```
 "require": {
     ...
-    "bitbull/magento2-module-instagramwidget": "5.1.1"
+    "bitbull/magento2-module-instagramwidget": "6.0.0"
  }
  ```
  
@@ -34,13 +34,14 @@ After install go to Magento2 admin in **Stores -> Configuration -> Bitbull -> In
  * Channel title to display on frontend 
  * Number of photos 
  
-![](https://raw.githubusercontent.com/bitbull-team/magento2-module-instagramwidget/develop/docs/admin-panel.png)
+![](https://raw.githubusercontent.com/bitbull-team/magento2-module-instagramwidget/develop/docs/6.0.0/admin-panel.png)
 
 To retrieve the data of your channel follow the official Instagram doc: https://www.instagram.com/developer/authentication/
 
 Changelog
 ----------
 
+* 6.0.0 - Refactoring, fix names and separate api configs from frontend settings
 * 5.1.2 - Composer.json validation
 * 5.1.1 - Updated php module's dependencies
 * 5.1.0 - Set correct common Bitbull module reference, fix on js and temporary removed trick for square images because it's not working again due to Instagram urls
