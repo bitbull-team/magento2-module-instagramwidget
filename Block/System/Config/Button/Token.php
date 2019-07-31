@@ -11,20 +11,68 @@ namespace Bitbull\InstagramWidget\Block\System\Config\Button;
 class Token extends \Magento\Config\Block\System\Config\Form\Field
 {
   /**
-   * Merchant Country Field Name
+   * Instagram Client Id Field Name
    *
    * @var string
    */
   protected $_clientId = 'bitbull_instagramwidget_configuration_instagram_client_id';
+  /**
+   * Instagram Client Secret Field Name
+   *
+   * @var string
+   */
+  protected $_clientSecret = 'bitbull_instagramwidget_configuration_instagram_client_secret';
+  /**
+   * Instagram User Id Field Name
+   *
+   * @var string
+   */
+  protected $_userId = 'bitbull_instagramwidget_configuration_instagram_user_id';
+  /**
+   * Instagram Token Field Name
+   *
+   * @var string
+   */
+  protected $_token = 'bitbull_instagramwidget_configuration_instagram_token';
 
   /**
-   * Get Merchant Country Field Name
+   * Get Instagram Client Id Field Name
    *
    * @return string
    */
   public function getClientIdField()
   {
     return $this->_clientId;
+  }
+
+  /**
+   * Get Instagram Client Secret Field Name
+   *
+   * @return string
+   */
+  public function getClientSecretField()
+  {
+    return $this->_clientSecret;
+  }
+
+  /**
+   * Get Instagram User Id Field Name
+   *
+   * @return string
+   */
+  public function getUserIdField()
+  {
+    return $this->_userId;
+  }
+
+  /**
+   * Get Instagram Token Field Name
+   *
+   * @return string
+   */
+  public function getTokenField()
+  {
+    return $this->_token;
   }
 
   /**
@@ -59,7 +107,7 @@ class Token extends \Magento\Config\Block\System\Config\Form\Field
    */
   public function getAjaxCheckUrl()
   {
-    return $this->getUrl('addbutton/listdata'); //hit controller by ajax call on button click.
+    return $this->getUrl('instagramlogin/instagram/login'); //hit controller by ajax call on button click.
   }
   /**
    * Get the button and scripts contents
@@ -69,12 +117,11 @@ class Token extends \Magento\Config\Block\System\Config\Form\Field
    */
   protected function _getElementHtml(\Magento\Framework\Data\Form\Element\AbstractElement $element)
   {
-    //$originalData = $element->getOriginalData();
     $this->addData(
       [
-        'id'        => 'instagram_token_button',
-        'button_label'     => 'Get Token',
-        'onclick'   => 'javascript:check(); return false;'
+        'id'            => 'instagram_token_button',
+        'button_label'  => 'Get Token',
+        'onclick'       => 'javascript:check(); return false;'
       ]
     );
     return $this->_toHtml();
