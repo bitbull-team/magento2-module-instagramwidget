@@ -1,0 +1,50 @@
+<script>
+require(['prototype'], function(){
+
+  //<![CDATA[
+  // get code = https://api.instagram.com/oauth/authorize/?client_id=CODE&redirect_uri=http://www.goldenpoint.local/admin/admin/system_config/edit/section/bitbull_instagramwidget/?key=METTILAKEY&response_type=code
+  // get token = https://api.instagram.com/oauth/access_token
+  // {
+  //   "client_id": "",
+  //   "client_secret": "",
+  //   "grant_type": "authorization_code",
+  //   "redirect_uri": "",
+  //   "code": ""
+  // }
+
+  var endpoint = "https://api.instagram.com/oauth/";
+
+  function getCode() {
+
+    var clientId = document.getElementById('<?php /* @escapeNotVerified */ echo $block->getClientIdField(); ?>').value;
+
+    if (!clientId) {
+      alert('Please, fill in the Client Id field to generate a new token')
+      return false;
+    }
+
+
+  }
+
+  function getToken() {
+
+    var urlParams = new URLSearchParams(window.location.search);
+    var code = urlParams.get('code');
+
+    console.log(code);
+
+  }
+
+  window.getCode = getCode;
+  window.onload = getToken(); // to review
+
+//]]>
+
+});
+</script>
+
+<div class="pp-buttons-container">
+  <button type="button" id="<?php echo $block->getId() ?>" onclick="getCode()">
+    <span><?php echo $block->escapeHtml($block->getButtonLabel()); ?></span>
+  </button>
+</div>

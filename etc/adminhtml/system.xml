@@ -7,6 +7,15 @@
             <resource>Magento_Config::config_admin</resource>
             <group id="configuration" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
                 <label>Configuration</label>
+                <field id="instagram_client_id" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Instagram Client Id</label>
+                    <comment>You can get it from here: https://www.instagram.com/developer/clients/manage/. If no client is listed you will need to register a new one.</comment>
+                </field>
+                <field id="instagram_get_token" translate="label" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Generate a new token</label>
+                    <frontend_model>Bitbull\InstagramWidget\Block\System\Config\Button\Token</frontend_model>
+                    <comment>Be sure you have filled the client ID field.</comment>
+                </field>
                 <field id="instagram_token" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Instagram Token Credentials</label>
                     <validate>required-entry</validate>
