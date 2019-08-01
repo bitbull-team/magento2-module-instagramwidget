@@ -5,8 +5,8 @@
 
     var endpoint = 'https://api.instagram.com/oauth/';
     var loginWindow = 'InstagramLogin';
-    var clientId = $('#<?php /* @escapeNotVerified */ echo $block->getClientIdField(); ?>').val();
-    var clientSecret = $('#<?php /* @escapeNotVerified */ echo $block->getClientSecretField(); ?>').val();
+    var clientId = document.getElementById('<?php /* @escapeNotVerified */ echo $block->getClientIdField(); ?>');
+    var clientSecret = document.getElementById('<?php /* @escapeNotVerified */ echo $block->getClientSecretField(); ?>');
     var pageKey = '<?php /* @escapeNotVerified */ echo $this->getRequest()->getParam('key'); ?>';
 
     function getCode() {
@@ -19,12 +19,14 @@
     function getToken(code) {
 
       var params = {
-        "client_id": clientId,
-        "client_secret": clientSecret,
+        "client_id": window.opener.document.getElementById('<?php /* @escapeNotVerified */ echo $block->getClientIdField(); ?>').value,
+        "client_secret": window.opener.document.getElementById('<?php /* @escapeNotVerified */ echo $block->getClientSecretField(); ?>').value,
         "grant_type": "authorization_code",
         "redirect_uri": "http://www.goldenpoint.local/admin/admin/system_config/edit/section/bitbull_instagramwidget/?key=" + pageKey,
         "code": code
       };
+
+      debugger;
 
       $.ajax({
         url: endpoint + 'access_token/',
@@ -32,13 +34,14 @@
         type: 'POST',
         data: params,
         success: function(data) {
-          window.opener.document.getElementById('<?php /* @escapeNotVerified */ echo $block->getTokenField(); ?>').value = data.access_token;
+          window.opener.document.getElementById('<?php /* @escapeNotVerified */ echo $block->getTokenField(); ?>x').value = data.access_token;
           window.opener.document.getElementById('<?php /* @escapeNotVerified */ echo $block->getUserIdField(); ?>').value = data.user.id;
           window.close();
         },
         error: function(data) {
+          console.error('Error: '+ JSON.stringify(data));
           console.error('Error: '+ data.error_message);
-          window.document.write('Something went wrong, ensure you have correctly configure the valid redirect URIs in your Instagram App and try again.')
+          window.document.body.innerText = 'Something went wrong, ensure you have correctly configure the valid redirect URIs in your Instagram App and try again.';
         }
       });
 
@@ -46,20 +49,18 @@
 
     function getInstagramAccess() {
 
-      if (!clientId && !clientSecret) {
+      if (!clientId.value && !clientSecret.value) {
         alert('Please, fill in the Client Id and the Client Secret fields to generate a new token');
         return false;
       }
 
-      window.open(endpoint + 'authorize/?client_id=' + clientId + '&redirect_uri=http://www.goldenpoint.local/admin/admin/system_config/edit/section/bitbull_instagramwidget/?key='+ pageKey +'&response_type=code', loginWindow, 'toolbar=no,scrollbars=no,resizable=no,top=300,left=400,width=400,height=600');
+      window.open(endpoint + 'authorize/?client_id=' + clientId.value + '&redirect_uri=http://www.goldenpoint.local/admin/admin/system_config/edit/section/bitbull_instagramwidget/?key='+ pageKey +'&response_type=code', loginWindow, 'toolbar=no,scrollbars=no,resizable=no,top=300,left=400,width=400,height=600');
 
     }
 
     if (window.name === loginWindow) {
       window.addEventListener('load', function () {
-        console.log(window.name);
         var code = getCode();
-        console.log(code);
         if (code) {
           window.document.write('Connecting..');
           getToken(code);
