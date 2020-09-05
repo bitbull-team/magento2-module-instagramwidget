@@ -41,6 +41,7 @@ To retrieve the data of your channel follow the official Instagram doc: https://
 Changelog
 ----------
 
+* 6.0.1 - Added support for php7.3 (by @juhanihaapala)
 * 6.0.0 - Refactoring, fix names and separate api configs from frontend settings
 * 5.1.2 - Composer.json validation
 * 5.1.1 - Updated php module's dependencies
